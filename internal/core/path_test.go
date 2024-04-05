@@ -748,7 +748,7 @@ func TestPathOverridePublisher(t *testing.T) {
 			err = c.SetupAll(desc.BaseURL, desc.Medias)
 			require.NoError(t, err)
 
-			c.OnPacketRTP(desc.Medias[0], desc.Medias[0].Formats[0], func(pkt *rtp.Packet) {
+			c.OnPacketRTP(desc.Medias[0], desc.Medias[0].Formats[0], func(pkt *rtp.Packet, time time.Time) {
 				if ca == "enabled" {
 					require.Equal(t, []byte{5, 15, 16, 17, 18}, pkt.Payload)
 				} else {

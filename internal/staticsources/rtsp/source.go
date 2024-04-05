@@ -143,13 +143,13 @@ func (s *Source) Run(params defs.StaticSourceRunParams) error {
 					cmedi := medi
 					cforma := forma
 
-					c.OnPacketRTP(cmedi, cforma, func(pkt *rtp.Packet) {
+					c.OnPacketRTP(cmedi, cforma, func(pkt *rtp.Packet, time time.Time) {
 						pts, ok := c.PacketPTS(cmedi, pkt)
 						if !ok {
 							return
 						}
 
-						res.Stream.WriteRTPPacket(cmedi, cforma, pkt, time.Now(), pts)
+						res.Stream.WriteRTPPacket(cmedi, cforma, pkt, time, pts)
 					})
 				}
 			}

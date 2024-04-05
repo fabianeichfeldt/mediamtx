@@ -99,11 +99,12 @@ func (s *Server) Initialize() error {
 	s.sessions = make(map[*gortsplib.ServerSession]*session)
 
 	s.srv = &gortsplib.Server{
-		Handler:        s,
-		ReadTimeout:    time.Duration(s.ReadTimeout),
-		WriteTimeout:   time.Duration(s.WriteTimeout),
-		WriteQueueSize: s.WriteQueueSize,
-		RTSPAddress:    s.Address,
+		Handler:                  s,
+		ReadTimeout:              time.Duration(s.ReadTimeout),
+		WriteTimeout:             time.Duration(s.WriteTimeout),
+		WriteQueueSize:           s.WriteQueueSize,
+		RTSPAddress:              s.Address,
+		DisableRTCPSenderReports: false,
 	}
 
 	if s.UseUDP {

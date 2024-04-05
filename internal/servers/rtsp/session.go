@@ -306,13 +306,13 @@ func (s *session) onRecord(_ *gortsplib.ServerHandlerOnRecordCtx) (*base.Respons
 			cmedi := medi
 			cforma := forma
 
-			s.rsession.OnPacketRTP(cmedi, cforma, func(pkt *rtp.Packet) {
+			s.rsession.OnPacketRTP(cmedi, cforma, func(pkt *rtp.Packet, time time.Time) {
 				pts, ok := s.rsession.PacketPTS(cmedi, pkt)
 				if !ok {
 					return
 				}
 
-				stream.WriteRTPPacket(cmedi, cforma, pkt, time.Now(), pts)
+				stream.WriteRTPPacket(cmedi, cforma, pkt, time, pts)
 			})
 		}
 	}

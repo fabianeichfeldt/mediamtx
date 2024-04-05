@@ -8,7 +8,7 @@ require (
 	github.com/abema/go-mp4 v1.2.0
 	github.com/alecthomas/kong v0.9.0
 	github.com/bluenviron/gohlslib v1.3.0
-	github.com/bluenviron/gortsplib/v4 v4.8.0
+	github.com/bluenviron/gortsplib/v4 v4.0.0-00010101000000-000000000000
 	github.com/bluenviron/mediacommon v1.9.2
 	github.com/datarhei/gosrt v0.6.0
 	github.com/fsnotify/fsnotify v1.7.0
